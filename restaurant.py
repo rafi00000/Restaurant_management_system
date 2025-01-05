@@ -1,7 +1,7 @@
 
 class FoodItem:
     def __init__(self, food_id, name, price, quantity):
-        self.id = food_id
+        self.food_id = food_id
         self.name = name
         self.price = price
         self.quantity = quantity
@@ -19,4 +19,5 @@ class Restaurant:
 
     def remove_item(self, food_id):
         for food in self.food_item:
-            if food.id.lower() == food_id:
+            if food.food_id == food_id:
+                self.food_item.remove(food)
