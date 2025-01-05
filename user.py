@@ -12,3 +12,9 @@ class User(ABC):
 class Customer(User):
     def __init__(self, name, email, address, nid):
         super().__init__(name, email, address, nid)
+
+
+class Admin(User):
+    def __init__(self, name, email, address, nid):
+        super().__init__(name, email, address, nid)
+
