@@ -12,10 +12,17 @@ class Restaurant:
         self.name = name
         self.food_items = []
         self.customers = []
+        self.orders = {}
 
     # ------------------
     # manage restaurant menu
     # ------------------
+    def view_one_item(self, food_id):
+        for food in self.food_items:
+            if food.food_id == food_id:
+                print(f"Id: {food.food_id} Name: {food.name} Price: {food.price} Available Quantity: {food.quantity}")
+                break
+
     def view_items(self):
         for food in self.food_items:
             print(f"Id: {food.food_id} Name: {food.name} Price: {food.price} Available Quantity: {food.quantity}")

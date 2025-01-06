@@ -13,9 +13,9 @@ class Admin(User):
     # manage customer accounts
     # ---------------
     @staticmethod
-    def create_customer(restaurant_obj, customer_id, name, email, address):
-        new_customer = Customer(customer_id, name, email, address)
-        restaurant_obj.add_item(new_customer)
+    def create_customer(restaurant, name, email, address):
+        new_customer = Customer(len(restaurant.customers) + 1, name, email, address)
+        restaurant.add_item(new_customer)  #
 
     @staticmethod
     def view_all_customers(restaurant):

@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from restaurant import FoodItem
 
 
 class User(ABC):

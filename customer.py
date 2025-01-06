@@ -11,3 +11,13 @@ class Customer(User):
     @staticmethod
     def view_menu(restaurant):
         restaurant.view_items()
+
+    @staticmethod
+    def place_order(restaurant, food_id, quantity):
+        for food in restaurant.food_items:
+            if food.food_id == food_id and food.quantity >= quantity:
+                food.quantity -= quantity
+                print("Successfully placed the order")
+                return
+        print("Order not successful. Invalid ID or quantity were given")
+

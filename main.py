@@ -1,4 +1,4 @@
-from user import Admin, Customer
+from admin import Admin
 from restaurant import Restaurant
 
 while True:
@@ -9,7 +9,8 @@ while True:
     user_type = int(input("Enter your user type: "))
 
     # restaurant instance
-    res = Restaurant("Test Restaurant")
+    restaurant = Restaurant("Test Restaurant")
+    admin = Admin("Rafi", "test@gmail.com", "Dhaka")
 
     match user_type:
         case 1:
