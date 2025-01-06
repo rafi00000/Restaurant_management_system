@@ -1,20 +1,9 @@
 from abc import ABC, abstractmethod
+from restaurant import FoodItem
 
 
 class User(ABC):
-    def __init__(self, name, email, address, nid):
+    def __init__(self, name, email, address):
         self.name = name
         self.email = email
         self.address = address
-        self.nid = nid
-
-
-class Customer(User):
-    def __init__(self, name, email, address, nid):
-        super().__init__(name, email, address, nid)
-
-
-class Admin(User):
-    def __init__(self, name, email, address, nid):
-        super().__init__(name, email, address, nid)
-
