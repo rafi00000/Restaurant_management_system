@@ -15,7 +15,7 @@ class Admin(User):
     @staticmethod
     def create_customer(restaurant, name, email, address):
         new_customer = Customer(len(restaurant.customers) + 1, name, email, address)
-        restaurant.add_item(new_customer)  #
+        restaurant.customers.appeand(new_customer)
 
     @staticmethod
     def view_all_customers(restaurant):

@@ -15,13 +15,9 @@ while True:
     match user_type:
         case 1:
             # Admin access
-            print(f"Welcome Admin")
-            print("1. Add item"
-                  "2. remove item"
-                  "3. ")
-            pass
+            restaurant.admin_menu(restaurant)
         case 2:
-            pass
             # customer access
+            restaurant.customer_menu(restaurant)
         case 3:
             break
