@@ -72,9 +72,10 @@ class Restaurant:
     def admin_menu(restaurant):
         name = input("Enter your name: ")
         email = input("Enter your email: ")
-        address = input("Enter your address")
+        address = input("Enter your address: ")
         n_admin = Admin(name, email, address)
         print(f"Welcome {name}")
+        print(f"Your restaurant obj is: {restaurant}")
         while True:
             print("1. Add item\n"
                   "2. remove item\n"
@@ -88,8 +89,8 @@ class Restaurant:
             match choice:
                 case 1:
                     name = input("Enter item name: ")
-                    price = input("Enter item price: ")
-                    quantity = input("Enter item quantity: ")
+                    price = int(input("Enter item price: "))
+                    quantity = int(input("Enter item quantity: "))
                     n_admin.add_item(restaurant, name, price, quantity)
                 case 2:
                     f_id = int(input("Please give the food id to remove: "))
@@ -110,6 +111,8 @@ class Restaurant:
                     n_admin.update_item_price(restaurant, f_id, update_price)
                 case 7:
                     break
+                case _:
+                    print("Invalid input")
 
 # ---------------
 # Menu for customer
@@ -118,16 +121,18 @@ class Restaurant:
         c_name = input("Please enter your name: ")
         c_email = input("Please enter your email address: ")
         c_address = input("Please enter your address: ")
-        customer = Customer(len(self.customers)+1, name=c_name, email=c_email, address=c_address)
-        # for c_obj in self.customers:
-        #     if c_obj.email == c_email:
-        #         customer = c_obj
-        #         print("Customer is created")
-        #         break
-        #
-        # if customer is None:
-        #     return
+        customer = None
+        # restaurant.customers.append(customer)
+        for c_obj in self.customers:
+            if c_obj.email == c_email:
+                customer = c_obj
+                break
+
+        if customer is None:
+            print("Wrong customer name or email. Please try different")
+            return
         print(f"Welcome {c_name}")
+        print(f"Welcome your restaurant obj is: {restaurant}")
 
         # customer menu
         while True:

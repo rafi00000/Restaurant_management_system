@@ -1,8 +1,5 @@
-import random
-
 from user import User
 from customer import Customer
-from restaurant import FoodItem
 
 
 # ---------------
@@ -22,15 +19,15 @@ class Admin(User):
 
     @staticmethod
     def view_all_customers(restaurant):
-        print("---------------------------------------------"
+        print("\n---------------------------------------------\n"
               "Customer detail: "
-              "Id \t Name \t\t Email \t\t Address"
+              "Id \t Name \t Email \t Address\n"
               "---------------------------------------------")
         for customer in restaurant.customers:
-            print(f"Customer id: {customer.customer_id} \t"
-                  f"Name: {customer.name}\t\t"
-                  f"Email: {customer.email}\t\t"
-                  f"Address: {customer.address}")
+            print(f"{customer.customer_id} \t"
+                  f"{customer.name}\t"
+                  f"{customer.email}\t"
+                  f"{customer.address}\n")
 
     @staticmethod
     def remove_customer(restaurant, customer_id):

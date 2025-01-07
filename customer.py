@@ -34,12 +34,17 @@ class Customer(User):
                         #  confirming the order
                         self.wallet -= total
                         food.quantity -= quantity
-                        self.orders.append(Order(self.customer_id, food.name, food.quantity, food.price, total))
+                        print(f"-----------------------------\n"
+                              f"Your order for  {food.name}, quantity: {quantity}, u_price: {food.price}, total: {total} has been confirmed."
+                              f"\n-----------------------------")
+                        self.orders.append(Order(self.customer_id, food.name, quantity, food.price, total))
                         return
                     else:
                         print("Insufficient Balance")
+                        return
                 else:
                     print("Insufficient Quantity")
+                    return
         print("Wrong food id")
 
     def check_balance(self):
