@@ -1,4 +1,3 @@
-from admin import Admin
 from restaurant import Restaurant
 
 while True:
@@ -10,7 +9,6 @@ while True:
 
     # restaurant instance
     restaurant = Restaurant("Test Restaurant")
-    admin = Admin("Rafi", "test@gmail.com", "Dhaka")
 
     match user_type:
         case 1:

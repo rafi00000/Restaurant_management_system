@@ -1,5 +1,8 @@
+import random
+
 from user import User
 from customer import Customer
+from restaurant import FoodItem
 
 
 # ---------------
@@ -15,7 +18,7 @@ class Admin(User):
     @staticmethod
     def create_customer(restaurant, name, email, address):
         new_customer = Customer(len(restaurant.customers) + 1, name, email, address)
-        restaurant.customers.appeand(new_customer)
+        restaurant.customers.append(new_customer)
 
     @staticmethod
     def view_all_customers(restaurant):
@@ -41,6 +44,7 @@ class Admin(User):
     # ---------------
     @staticmethod
     def add_item(restaurant, f_name, f_price, f_quantity):
+        # new_item = FoodItem(random.randint, f_name, f_price, f_quantity)
         restaurant.add_item(f_name, f_price, f_quantity)
 
     @staticmethod

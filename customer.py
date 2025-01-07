@@ -19,7 +19,11 @@ class Customer(User):
 
     @staticmethod
     def view_menu(restaurant):
-        restaurant.view_items()
+        if len(restaurant.food_items) > 0:
+            for food in restaurant.food_items:
+                print(f"Id: {food.food_id} Name: {food.name} Price: {food.price} Available Quantity: {food.quantity}")
+        else:
+            print("Sorry no food item is available.")
 
     def place_order(self, restaurant, food_id, quantity):
         for food in restaurant.food_items:

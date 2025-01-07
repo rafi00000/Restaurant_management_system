@@ -1,4 +1,5 @@
 from admin import Admin
+from customer import Customer
 
 
 # Food class for obj
@@ -28,11 +29,15 @@ class Restaurant:
                 break
 
     def view_items(self):
-        for food in self.food_items:
-            print(f"Id: {food.food_id} Name: {food.name} Price: {food.price} Available Quantity: {food.quantity}")
+        if len(self.food_items) > 0:
+            for food in self.food_items:
+                print(f"Id: {food.food_id} Name: {food.name} Price: {food.price} Available Quantity: {food.quantity}")
+        else:
+            print("Sorry no food item is available.")
 
     def add_item(self, name, price, quantity):
         new_item = FoodItem((len(self.food_items) + 1), name, price, quantity)
+        print("Food item created")
         self.food_items.append(new_item)
 
     def remove_item(self, food_id):
@@ -71,12 +76,12 @@ class Restaurant:
         n_admin = Admin(name, email, address)
         print(f"Welcome {name}")
         while True:
-            print("1. Add item"
-                  "2. remove item"
-                  "3. Create New customer"
-                  "4. View all customer"
-                  "5. remove Customer"
-                  "6. Update item price"
+            print("1. Add item\n"
+                  "2. remove item\n"
+                  "3. Create New customer\n"
+                  "4. View all customer\n"
+                  "5. remove Customer\n"
+                  "6. Update item price\n"
                   "7. Exit.")
             choice = int(input("Enter your choice: "))
 
@@ -112,25 +117,26 @@ class Restaurant:
     def customer_menu(self, restaurant):
         c_name = input("Please enter your name: ")
         c_email = input("Please enter your email address: ")
-        c_address = input("Please enter your address")
-        customer = None
-        for c_obj in self.customers:
-            if c_obj.email == c_email and c_obj.name.lower() == c_name.lower():
-                customer = c_obj
-                break
-
-        if customer is None:
-            return
+        c_address = input("Please enter your address: ")
+        customer = Customer(len(self.customers)+1, name=c_name, email=c_email, address=c_address)
+        # for c_obj in self.customers:
+        #     if c_obj.email == c_email:
+        #         customer = c_obj
+        #         print("Customer is created")
+        #         break
+        #
+        # if customer is None:
+        #     return
         print(f"Welcome {c_name}")
 
-        # customer menu. ---> might need to apply while loop for the menu section
+        # customer menu
         while True:
-            print("Please choose an option: "
-                  "1. View food items."
-                  "2. Order food."
-                  "3. Check balance."
-                  "4. View past orders."
-                  "5. Add balance."
+            print("Please choose an option: \n"
+                  "1. View food items.\n"
+                  "2. Order food.\n"
+                  "3. Check balance.\n"
+                  "4. View past orders.\n"
+                  "5. Add balance.\n"
                   "6. Exit.")
             choice = int(input("Please enter your choice: "))
 
