@@ -22,7 +22,7 @@ class Admin(User):
         print("\n---------------------------------------------\n"
               "Customer detail: "
               "Id \t Name \t Email \t Address\n"
-              "---------------------------------------------")
+              "---------------------------------------------\n")
         for customer in restaurant.customers:
             print(f"{customer.customer_id} \t"
                   f"{customer.name}\t"

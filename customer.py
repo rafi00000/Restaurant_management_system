@@ -21,6 +21,9 @@ class Customer(User):
     def view_menu(restaurant):
         if len(restaurant.food_items) > 0:
             for food in restaurant.food_items:
+                print("------------------------------------------\n"
+                      "---------------- Food Menu ---------------\n"
+                      "------------------------------------------\n")
                 print(f"Id: {food.food_id} Name: {food.name} Price: {food.price} Available Quantity: {food.quantity}")
         else:
             print("Sorry no food item is available.")
